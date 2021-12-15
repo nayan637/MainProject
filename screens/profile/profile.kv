@@ -1,0 +1,114 @@
+#:import Window kivy.core.window.Window
+
+
+<Profile>:
+    name: 'profile'
+    person:person
+    email:email
+    FloatLayout:
+        size_hint:(1,1)
+        FitImage:
+            source: ""
+            radius: [0,]
+
+        MDFillRoundFlatButton:
+            text: "main page"
+            custom_color: 0, 1, 0, 1
+            text_color: 0, 1, 0, 1
+            line_color: 0, 0, 1, 1
+            size_hint:.1,.05
+            pos_hint:{'x':.01,'y':.93}
+            on_press:
+                app.click_sound
+                app.progress()
+                app.switch_screen('mainpage')
+
+        MDLabel:
+            text: "PROFILE PAGE "
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 1, 0, 1, 1
+            size_hint:.1,.1
+            pos_hint:{'x':.45,'y':.90}
+
+        FitImage:
+            source:"data/images/profilebacground.jpg"
+            size_hint:.3,.7
+            pos_hint:{'x':.01,'y':.1}
+
+        MDCard:
+            orientation: "vertical"
+            padding: "8dp"
+            size_hint: None, None
+            size: "280dp", "280dp"
+            pos_hint: {"center_x": .16, "center_y": .5}
+
+            MDLabel:
+                id:person
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 1, 1
+                pos_hint:{'x':.04,'y':.63}
+
+            MDSeparator:
+                height: "1dp"
+
+            MDLabel:
+                id:email
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 1, 1
+                pos_hint:{'x':.05,'y':.53}
+
+
+       
+                          
+
+        MDFillRoundFlatButton:
+            text: "delete profile"
+            custom_color: 0, 1, 0, 1
+            text_color: 0, 1, 0, 1
+            line_color: 0, 0, 1, 1
+            size_hint:.08,.03
+            pos_hint:{'x':.12,'y':.23}
+            on_press:
+                app.click_sound
+                root.Message()
+            
+        MDFillRoundFlatButton:
+            text: "choose a profile photo"
+            custom_color: 0, 1, 0, 1
+            text_color: 0, 1, 0, 1
+            line_color: 0, 0, 1, 1
+            size_hint:.1,.03
+            pos_hint:{'x':.11,'y':.7}
+            on_press:
+                app.click_sound
+                app.choosefile() 
+
+
+                
+
+        MDFillRoundFlatButton:
+            text: "settings"
+            custom_color: 0, 1, 0, 1
+            text_color: 0, 1, 0, 1
+            line_color: 0, 0, 1, 1
+            size_hint:.1,.05
+            pos_hint:{'x':.78,'y':.93}
+            on_press:
+                app.click_sound
+                app.progress()
+                app.switch_screen('settings')      
+                
+        MDFillRoundFlatButton:
+            text: "logout"
+            custom_color: 0, 1, 0, 1
+            text_color: 0, 1, 0, 1
+            line_color: 0, 0, 1, 1
+            size_hint:.1,.05
+            pos_hint:{'x':.89,'y':.93}
+            on_press:
+                app.click_sound
+                app.progress()
+                app.switch_screen('login')  
